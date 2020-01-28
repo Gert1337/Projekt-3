@@ -1,0 +1,236 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  color: #C19E8D;
+}
+
+
+a{
+  color:#c19e8d;
+}
+
+.header{
+  background-color: #0F3049; /*mørkeblå*/
+  background-image: url(img/header.svg);
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0,.1);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  max-height: 75px;
+  min-height: 74px;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: #eaeef6; /*Lyseblå*/
+
+}
+
+.header ul a {
+  display: block;
+  padding: 20px;
+  border-right: 1px solid #eaeef6; /*Lyseblå*/
+  text-decoration: none;
+}
+
+.header ul a:hover{
+  background: #fff;
+}
+
+.header .logo{
+  float: left;
+  width: 55px;
+  height: 55px;
+  padding-top: 5px;
+  padding-left: 5px;
+
+}
+
+.header .menu{
+  clear: both;
+  max-height: 0;
+  transition:max-height .2s ease-out;
+}
+
+.header .menu-icon {
+  padding: 28px 20px;
+  position: relative;
+  float: right;
+  cursor: pointer;
+
+}
+
+
+.header .menu-icon .nav-icon {
+  background: #f3966c;
+  display: block;
+  height: 2px;
+  width: 20px;
+  position: relative;
+  transition:background .2s ease-out;
+}
+
+.header .menu-icon .nav-icon:before{
+  background:#f3966c;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transition:all .2s ease-out;
+  position:absolute;
+  top: 5px;
+}
+.header .menu-icon .nav-icon:after{
+  background:#f3966c;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transition:all .2s ease-out;
+  position:absolute;
+  top: -5px;
+}
+
+.header .menu-btn{
+display: none;
+}
+
+.header .menu-btn:checked~ .menu{
+  max-height: 240px;
+}
+
+.header .menu-btn:checked~ .menu-icon .nav-icon{
+background:transparent;
+}
+.header .menu-btn:checked~ .menu-icon .nav-icon:before{
+transform: rotate(-45deg);
+top:0;
+}
+.header .menu-btn:checked~ .menu-icon .nav-icon:after{
+transform: rotate(45deg);
+top:0;
+}
+
+/*galleri*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  font-size: 10px;
+  width: 100%;
+  height: 100vh;
+  background-color: #EAEEF6;
+  display: flex;
+}
+.gallerycontainerproduktfoto {
+  width: 100%;
+  max-width: 120rem;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+.image-gallery1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1.5rem;
+  grid-template-areas:'overskiftg1 overskiftg1 overskiftg1 overskiftg1'
+                      'image1 image1 image1 image1'
+                      'image2 image2 image2 image2'
+                      'image3 image3 image3 image3'
+                      'image4 image4 image4 image4'
+}
+
+.image-gallery1 a {
+  width: 100%;
+  height: 25rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+}
+
+.image-gallery1 a i {
+color: rgba(255, 255, 255, 0.6);
+font-size: 3rem;
+position: relative;
+z-index: 100;
+padding: 1rem 3rem;
+border: 2px solid rgba(255, 255, 255, 0.6);
+border-radius: .4rem;
+opacity:0;
+transition: opacity .5s;
+}
+
+.image-gallery1 a::before {
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+background-color: rgba(243, 150, 108, 0.8);
+opacity: 0;
+transition: opacity .5s;
+
+}
+
+.image-gallery1 a:hover i,
+.image-gallery1 a:hover::before{
+  opacity: 1;
+}
+
+.overskiftg1 {
+  grid-area: overskiftg1;
+  font-size: 3rem;
+}
+
+.image1{
+  grid-area: image1;
+  background-image: url("img/gallery/kaffe.svg");
+}
+
+.image2 {
+  grid-area: image2;
+  background-image: url("img/gallery/isskaal.svg");
+}
+
+.image3 {
+  grid-area: image3;
+  background-image: url("img/gallery/popcorn.svg");
+}
+
+.image4 {
+  grid-area: image4;
+  background-image:url("img/gallery/skaal.svg");
+}
+
+
+@media screen and (min-width:700px) {
+  .image-gallery1 {
+    grid-template-areas:'overskiftg1 overskiftg1 overskiftg1 overskiftg1'
+                        'image1 image1 image2 image2'
+                        'image3 image3 image4 image4'
+
+
+
+
+}
+}
